@@ -6,6 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGaurdService } from './service/route-gaurd.service';
+import { TodoComponent } from './todo/todo.component';
 
 
 //welcome
@@ -14,7 +15,8 @@ const routes: Routes = [
     {path : 'login', component: LoginComponent},
     {path : 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGaurdService]},
     {path : 'todos', component: ListTodosComponent, canActivate: [RouteGaurdService]},
-    {path : 'logout', component: LogoutComponent},
+    {path : 'logout', component: LogoutComponent, canActivate: [RouteGaurdService]},
+    {path : 'todos/:id', component: TodoComponent, canActivate: [RouteGaurdService]},
     {path : '**', component: ErrorComponent}
 ];
 
