@@ -38,7 +38,7 @@ welcomeMessagefromService: String = '';
 
   handleSuccessfulResponse(response){
     console.log(response.name);
-    this.welcomeMessagefromService = response.name;
+    this.welcomeMessagefromService = response;
   }
   handleErrorResponse(error){
     console.log(error.error.message);
@@ -49,9 +49,10 @@ welcomeMessagefromService: String = '';
   getWelcomeMessageWithPathvariable(){
     this.sevrice.excuteHelloServicePathVaribale(this.name).subscribe(
 
-      response  => this.handleSuccessfulResponse(response),
-
-      error  => this.handleErrorResponse(error)
+      response  => {
+        
+        this.handleSuccessfulResponse(response)
+      }
     );
 
     console.log('last line of getWelcomeMessage');

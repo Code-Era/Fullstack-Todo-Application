@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.codera.todorestapi.BasicAuthentication;
 import com.codera.todorestapi.service.TodoService;
 import com.codera.todorestapi.shared.dto.TodoDto;
 
@@ -26,6 +27,12 @@ public class TodoController {
 	
 	@Autowired
 	private TodoService todoService;
+	
+	@GetMapping("/basicauth")
+	public BasicAuthentication  getHelloWorld( ){
+		return new BasicAuthentication("Success Authentication");
+	}
+	
 	
 	@GetMapping("/users/{name}/todos")
 	public List<TodoDto> getAllTodosList(@PathVariable String name ){
